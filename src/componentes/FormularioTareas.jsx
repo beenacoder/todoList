@@ -29,23 +29,11 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
 
     return ( 
         <form action="" className='formulario-tareas' onSubmit={handleSubmit}>
-            <input 
-                type="text"
-                className='formulario-tareas__input'
-                placeholder='Escribe una tarea'
-                value = {inputTarea}
-                onChange = {(e) => handleInput(e)}
-            />
-            <button 
-                type="submit"
-                className='formulario-tareas__btn'
-            >
-            <FontAwesomeIcon 
-                icon={faPlusSquare}
-                className="formulario-tareas__icono-btn"
-            />
+            <input type="text" className='formulario-tareas__input' placeholder='Escribe una tarea' value = {inputTarea} onChange = {(e) => handleInput(e)}/>
+            <button type="submit" className='formulario-tareas__btn'>
+                <FontAwesomeIcon  icon={faPlusSquare} className="formulario-tareas__icono-btn"/>
             </button>
-            </form>
+        </form>
     );
 }
  

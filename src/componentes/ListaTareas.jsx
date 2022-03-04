@@ -20,13 +20,9 @@ const ListaTareas = ({tareas, cambiarTareas}) => {
             tareas.length > 0 
             ? 
             tareas.map((tarea)=>{
-                return <Tarea 
-                    key = {tarea.id}
-                    tarea = {tarea}
-                    toggleCompletada = {toggleCompletada}
-                    
-                />})
-            : <div className='lista-tareas__mensaje'> No hay tareas agregadas </div>
+                return <Tarea key = {tarea.id} tarea = {tarea} toggleCompletada = {toggleCompletada} />})
+            : 
+                <div className='lista-tareas__mensaje'> No hay tareas agregadas </div>
         }
         </ul>
     );
