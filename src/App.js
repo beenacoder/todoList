@@ -4,7 +4,7 @@ import Header from './componentes/Header';
 import FormularioTareas from './componentes/FormularioTareas';
 import ListaTareas from './componentes/ListaTareas';
 const App = () => {
-  const [tareas, setTareas] = useState([
+  const [tareas, cambiarTareas] = useState([
     {
       id: 1,
       texto: 'Lavar la ropa',
@@ -23,8 +23,8 @@ const App = () => {
   return (
     <div className="contenedor">
       <Header/>
-      <FormularioTareas tareas={tareas} setTareas={setTareas}/>
-      <ListaTareas tareas={tareas} />
+      <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas}/>
+      <ListaTareas tareas={tareas} cambiarTareas={cambiarTareas} />
     </div>
   );
 }

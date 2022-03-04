@@ -5,7 +5,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  {faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
-const FormularioTareas = ({tareas, setTareas}) => {
+const FormularioTareas = ({tareas, cambiarTareas}) => {
     const [inputTarea, cambiarInputTarea] = useState('');
 
     const handleInput = (e) => {
@@ -15,7 +15,7 @@ const FormularioTareas = ({tareas, setTareas}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        setTareas([
+        cambiarTareas([
             ...tareas,
             {
                 id: uuidv4(),
