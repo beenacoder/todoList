@@ -13,18 +13,23 @@ const App = () => {
     {
       id: 2,
       texto: 'Preparar tutorial',
-      completada: false
+      completada: true
     }
   ]
   );
 
-  console.log(tareas);
+  const [mostrarCompletadas, cambiarMostrarCompletadas] = useState(false);
+  
 
   return (
     <div className="contenedor">
-      <Header/>
+      <Header mostrarCompletadas={mostrarCompletadas} cambiarMostrarCompletadas = {cambiarMostrarCompletadas}/>
       <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas}/>
-      <ListaTareas tareas={tareas} cambiarTareas={cambiarTareas} />
+      <ListaTareas 
+        tareas={tareas} 
+        cambiarTareas={cambiarTareas} 
+        mostrarCompletadas = {mostrarCompletadas}
+      />
     </div>
   );
 }
