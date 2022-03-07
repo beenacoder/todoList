@@ -54,7 +54,7 @@ const ListaTareas = ({tareas, cambiarTareas, mostrarCompletadas}) => {
                                     borrarTarea = {borrarTarea}
                                 />
                     }
-                    // Si la tarea ya esta completada no la devolvemos
+                    // Si la tarea ya esta completada no la devolvemos 
                     return;
                 })
                 : 

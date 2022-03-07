@@ -15,21 +15,31 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        cambiarTareas([
-            ...tareas,
-            {
-                id: uuidv4(),
-                texto: inputTarea,
-                completado: false
-            }
-        ]);
-        
+        if(inputTarea === ''){
+            alert("Por favor agrega una tarea")
+        } else {
+
+            cambiarTareas([ 
+                ...tareas,   
+                {  
+                    id: uuidv4(), 
+                    texto: inputTarea,   
+                    completado: false  
+                } 
+            ]);  
+            cambiarInputTarea('');
+        }
     }
 
 
     return ( 
         <form action="" className='formulario-tareas' onSubmit={handleSubmit}>
-            <input type="text" className='formulario-tareas__input' placeholder='Escribe una tarea' value = {inputTarea} onChange = {(e) => handleInput(e)}/>
+            <input 
+                type="text" 
+                className='formulario-tareas__input' 
+                placeholder='Escribe una tarea' 
+                value = {inputTarea} 
+                onChange = {(e) => handleInput(e)}/>
             <button type="submit" className='formulario-tareas__btn'>
                 <FontAwesomeIcon  icon={faPlusSquare} className="formulario-tareas__icono-btn"/>
             </button>

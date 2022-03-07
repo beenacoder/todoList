@@ -1,25 +1,31 @@
-import React, {useState} from 'react';
-import './App.css';
+import React, {useState, useEffect} from 'react';
 import Header from './componentes/Header';
-import FormularioTareas from './componentes/FormularioTareas';
 import ListaTareas from './componentes/ListaTareas';
-const App = () => {
-  const [tareas, cambiarTareas] = useState([
-    {
-      id: 1,
-      texto: 'Lavar la ropa',
-      completada: false
-    },
-    {
-      id: 2,
-      texto: 'Preparar tutorial',
-      completada: true
-    }
-  ]
-  );
+import './App.css';
+import FormularioTareas from './componentes/FormularioTareas';
 
-  const [mostrarCompletadas, cambiarMostrarCompletadas] = useState(false);
+const App = () => {
+  //Obtenemos las tareas guardadas de localstorage.
+  const tareasGuardadas = localStorage.getItem('tareas') 
+  ? 
+  JSON.parse(localStorage.getItem('tareas')) 
+  : 
+  [];
   
+  // Establecemos el estado de las tareas obtenidas de logalstorage.
+  const [tareas, cambiarTareas] = useState(tareasGuardadas);
+
+  //Guardamos el estado de la app cada vez que cambia dentro de localstorage
+  useEffect(() => {
+    //Esto se ejecuta la primera vez y cuando las tareas cambien
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+  }, [tareas]);
+
+
+  const [mostrarCompletadas, cambiarMostrarCompletadas] = useState(true);
+  useEffect(() => {
+    localStorage.setItem('mostrarCompletadas', mostrarCompletadas.toString());
+  }, [mostrarCompletadas]);
 
   return (
     <div className="contenedor">

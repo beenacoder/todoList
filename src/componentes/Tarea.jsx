@@ -14,7 +14,7 @@ const Tarea = ({tarea, toggleCompletada, editarTarea, borrarTarea}) => {
     }
 
     return (
-        <li className='lista-tareas__tarea'>
+        <li className='lista-tareas__tarea' >
             <FontAwesomeIcon  icon={tarea.completada ? faCheckSquare : faSquare} className="lista-tareas__icono lista-tareas__icono-check" onClick={() => {toggleCompletada(tarea.id)}}/>
             <div className='lista-tareas__texto'>
                 {editandoTarea ? 
